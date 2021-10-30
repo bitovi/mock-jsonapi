@@ -55,7 +55,7 @@ const definitions = {
 
 // 2. Generate your raw data
 const data = generate( definitions, {
-  Employee: {from: 0, to: 100, properties: {name: faker.name.findName},
+  Employee: {from: 0, to: 100, properties: {name: faker.name.findName} },
   Skill: [{ name: "JS" }, {name: "UX"}, {name: "Backend"}],
   EmployeeSkill: {for: "Employee", from: 0, to: 10}
 });
