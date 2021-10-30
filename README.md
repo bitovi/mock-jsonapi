@@ -28,6 +28,55 @@
 
 ## Use
 
+The __tldr__ use case is as follows:
+
+```js
+// 1. Define your models:
+const definitions = {
+  Employee: {
+    name: "Employee", idColumn: 'id',
+    schema: {
+        type: "object",
+        required: ['fullName'],
+        properties: {
+          id: {type: "string", format: "uuid"},
+          startDate: {type: "string", format: "date-time"}
+        }
+      }
+    },
+    relationMappings: {
+      skills: { relation: "hasManyRelation", modelClass: {$ref: "#/definitions/Skill"}, through: "#/definitions/EmployeeSkill" },
+      employeeRoles: { /* ... */ },
+    }
+  },
+  Skill: {/* ... */},
+  EmployeeRoles: {/* ... */}
+}
+
+// 2. Generate your raw data
+const data = generate( definitions, {
+  Employee: {from: 0, to: 100, properties: {name: faker.name.findName},
+  Skill: [{ name: "JS" }, {name: "UX"}, {name: "Backend"}],
+  EmployeeSkill: {for: "Employee", from: 0, to: 10}
+});
+
+// 3. Conditionally load data into your data Store
+const dataStore = new LocalDataStore(definitions, "some-key");
+if(dataStore.isEmpty() ){
+  dataStore.import( data );
+}
+
+// 4. Connect the dataStore to mock service worker
+const handlers = mswJSONApi(dataStore, {
+  Employee: "/employees",
+  Skill: "/skills",
+});
+setupServer( handlers );
+
+// 5. Make beautiful JSONAPI requests
+fetch("/employees?include=skills")
+```
+
 
 
 ### Step 1: Define your Models
