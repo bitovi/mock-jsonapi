@@ -3,7 +3,7 @@
 ## Goals 
 
 1. Easily generate a mock JSONAPI that handles relationships, filtering, sorting, etc
-2. Make it easy to work with backend teams.
+2. Make it easy to work with backend teams. (Generate OpenAPI)
 3. Allow customization
 4. Work with typescript
 
