@@ -18,6 +18,7 @@
 - [JSONSchema](https://json-schema.org/) - how objection does validation ... can be used for describing properties
 - [json-schema-faker](https://github.com/json-schema-faker/json-schema-faker/blob/master/docs/USAGE.md) - Fakes data for a JSON schema
 - [ChanceJS](https://chancejs.com/) - Random generator helper.
+- [Mock Service Worker](https://mswjs.io/)
 
 
 ## Questions
