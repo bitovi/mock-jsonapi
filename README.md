@@ -40,6 +40,7 @@ const definitions = {
         required: ['fullName'],
         properties: {
           id: {type: "string", format: "uuid"},
+          name: {type:"string"},
           startDate: {type: "string", format: "date-time"}
         }
       }
