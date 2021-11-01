@@ -161,9 +161,9 @@ const data = generate( definitions, {
 });
 
 data === {
-  Employee: [{},{},{}],
+  Employee: [{id: "11-11", name: "Fred Gupta", ...},{},{}],
   Skill: [{ name: "JS", id: 001 }, {name: "UX", id: 002}, {name: "Backend", id: 003}],
-  EmployeeSkill: [ ... ]
+  EmployeeSkill: [ {id: "33-33", employee_id: "11-11", skill_id: 001}, ... ]
 }
 ```
 
