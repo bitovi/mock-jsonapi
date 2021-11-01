@@ -179,6 +179,9 @@ if(dataStore.isEmpty() ){
 }
 ```
 
+- How to handle migrations?  What if the definition changed? (For now, we blow away the data and regenerate).
+
+
 
 ### Step 4: Hookup JSONAPI to the dataStore
 
